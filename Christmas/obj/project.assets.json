@@ -12956,11 +12956,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yen Agetorp\\Desktop\\Christmas-master\\Christmas\\Christmas.csproj",
+      "projectUniqueName": "C:\\Users\\Yen Agetorp\\source\\repos\\ChristmasUppgiften\\Christmas\\Christmas.csproj",
       "projectName": "Christmas",
-      "projectPath": "C:\\Users\\Yen Agetorp\\Desktop\\Christmas-master\\Christmas\\Christmas.csproj",
+      "projectPath": "C:\\Users\\Yen Agetorp\\source\\repos\\ChristmasUppgiften\\Christmas\\Christmas.csproj",
       "packagesPath": "C:\\Users\\Yen Agetorp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yen Agetorp\\Desktop\\Christmas-master\\Christmas\\obj\\",
+      "outputPath": "C:\\Users\\Yen Agetorp\\source\\repos\\ChristmasUppgiften\\Christmas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

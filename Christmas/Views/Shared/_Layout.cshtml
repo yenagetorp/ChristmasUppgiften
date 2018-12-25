@@ -6,11 +6,16 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.css">
 </head>
-<body style="color:red" >
-    <div>
+<body>
+    <header  style="text-align:center" class="jumbotron">
+        <h1 style="font-family:Sans-serif; color:red;  font-style:oblique">Dags for Julklappsutdelning!</h1> 
+    </header>
+    <div class="container">
         @RenderBody()
     </div>
     @RenderSection("scripts", false)
-
+    <footer  style="margin-top:50px; margin-left:150px; color:red">
+        &copy; Yen 2018
+    </footer>
 </body>
 </html>

@@ -3,22 +3,42 @@
     ViewData["Title"] = "Index";
 }
 @model ChristmasIndexVM
-<h1>All the people and their presents</h1>
-<ul>
+<h4 style="color:red">All the people and their presents:</h4>
+<br />
+<div class="row">
     @foreach (var person in Model.People)
     {
-        <li>@person.Name <br />
-        @foreach (var rhyme in person.Rhymes)
-        {
-            @rhyme<br />
-        }</li>
+        <div class="col-lg-3 col-mg-4 col-sm-6 col-xs-12">
+            <div class="card text-white bg-success mb-3 " style="max-width: 20rem; margin-left: 2rem;">
+
+                <div class="card-header">
+                    @person.Name <br />
+                </div>
+                <div class="card-body">
+                    @for (int i = 0; i < person.Rhymes.Count; i++)
+                    {
+                        <p><strong style="color:chocolate">Present @(i + 1):</strong> @person.Rhymes[i]</p>
+                    }
+
+                </div>
+            </div>
+        </div>
+
     }
-</ul>
-<form asp-controller="" asp-action="">
-    <label asp-for="CreateFormVM.Name"></label>
-    <input asp-for="CreateFormVM.Name" placeholder="enter a name..." required class="form-control form-control-sm" />
-    <input type="submit" value="Add" />
-    <span asp-validation-for="CreateFormVM.Name"></span>
+</div>
+
+<form asp-controller="" asp-action="" style="margin-top:50px;">
+    <div class="form-group">
+        <label asp-for="CreateFormVM.Name">Enter a Name:</label>
+        <input asp-for="CreateFormVM.Name" placeholder="enter a name here..." required class="form-control form-control-sm" />
+        <span asp-validation-for="CreateFormVM.Name"></span>
+    </div>
+
+    <div class="row" style="margin-left:10px;">
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a asp-controller="ChristmasPresents" class="btn btn-secondary" asp-action="CreatePresents">Klick here to give away a present to someone you want</a>
+    </div>
+
+    @*<input type="submit" value="Add" />*@
 </form>
-<a asp-controller="ChristmasPresents" asp-action="CreatePresents">Klick here to give away a present to someone you want</a>
 
