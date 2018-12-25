@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "CreatePresents";
+}
+@model ChristmasPresentsCreateVM
+<h1>CreatePresents</h1>
+<form asp-controller="ChristmasPresents" asp-action="CreatePresents">
+    <label asp-for="Rhyme"></label>
+    <input asp-for="Rhyme"/>
+    <span asp-validation-for="Rhyme"></span>
+
+    <label asp-for="People"></label>
+   <select asp-for="RecieverId" asp-items="Model.People"></select>
+    <span asp-validation-for="RecieverId"></span>
+    <input type="submit" value="Add"/>
+</form>
+<a asp-controller="" asp-action="">Back</a>
+
