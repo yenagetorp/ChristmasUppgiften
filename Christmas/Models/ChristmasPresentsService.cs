@@ -1,5 +1,6 @@
 ﻿using Christmas.Models.Entities;
 using Christmas.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,10 @@ namespace Christmas.Models
 {
     public class ChristmasPresentsService
     {
+       
+
         GiftsContext context;
+
         public ChristmasPresentsService(GiftsContext context)
         {
             this.context = context;
@@ -23,11 +27,12 @@ namespace Christmas.Models
                 People = context.Person
                 .Select(p => new ChristmasIndexItemVM
                 {
-                    Id=p.Id,
-                    Name=p.Name,
-                    Rhymes=p.Present.Where(ps=>ps.RecieverId==p.Id)
-                    .Select(ps=>ps.Rhyme).ToList()
+                    // Id=p.Id,
+                    Name = p.Name,
+                    //Rhymes=p.Present.Where(ps=>ps.RecieverId==p.Id)
+                    //.Select(ps=>ps.Rhyme).ToList(),
                     //.SingleOrDefault(ps=>ps.RecieverId==p.Id).Rhyme
+                    RhymesAndSender = p.Present.Where(ps => ps.RecieverId == p.Id).Select(ps => new Tuple<string, string>(ps.Rhyme, ps.Sender)).ToList()
                 })
                  .ToArray()
             };
@@ -37,21 +42,33 @@ namespace Christmas.Models
 
         public void AddAPerson(ChristmasPeopleCreateVM person)
         {
+
+
             context.Person.Add(new Person
             {
-                Name = person.Name
+                Name = person.Name,
             });
             context.SaveChanges();
         }
 
         public void CreatePresents(ChristmasPresentsCreateVM present)
         {
+
             context.Present.Add(new Present
             {
+                //Id=present.Id,
+
                 Rhyme = present.Rhyme,
-                Reciever = this.context.Person.SingleOrDefault(p=>p.Id==present.RecieverId)
+                
+                //Sender = present.Senders.SingleOrDefault(ps => ps.Value == present.Rhyme).Text,
+                 Sender = present.Sender,
+
+
+                Reciever = this.context.Person.SingleOrDefault(p => p.Id == present.RecieverId)
             });
             context.SaveChanges();
         }
+
+
     }
 }

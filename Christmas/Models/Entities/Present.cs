@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 
 namespace Christmas.Models.Entities
@@ -8,6 +9,8 @@ namespace Christmas.Models.Entities
         public int Id { get; set; }
         public int RecieverId { get; set; }
         public string Rhyme { get; set; }
+        public string Sender { get; set; }
+        
 
         public virtual Person Reciever { get; set; }
     }

@@ -13,5 +13,6 @@ namespace Christmas.Models.ViewModels
         [Display(Name="First Name")]
         [Required(ErrorMessage ="Enter your name please")]
         public string Name { get; set; }
+
     }
 }

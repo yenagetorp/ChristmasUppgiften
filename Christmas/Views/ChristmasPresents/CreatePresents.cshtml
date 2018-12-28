@@ -10,12 +10,27 @@
         <label asp-for="Rhyme">Rhyme for Present: </label>
         <input asp-for="Rhyme" />
         <span asp-validation-for="Rhyme"></span>
+       @* <input asp-for="Id" type="hidden" value="@Model.Id"/>*@
     </div>
+    <div class="form-group">
+        <label asp-for="Sender">From: </label>
+        <input asp-for="Sender" />
+        <span asp-validation-for="Sender"></span>
+    </div>
+
     <div class="form-group">
         <label asp-for="People">To Person: </label>
         <select asp-for="RecieverId" asp-items="Model.People"></select>
         <span asp-validation-for="RecieverId"></span>
     </div>
+
+    @*<div class="form-group">
+            <label asp-for="Senders">From: </label>
+            <select asp-for="Rhyme" asp-items="Model.Senders"></select>
+            <span asp-validation-for="Rhyme"></span>
+        </div>*@
+
+
     <div class="row" style="margin-left:10px;">
         <button type="submit" class="btn btn-primary">Add</button>
         <a class="btn btn-secondary" asp-controller="" asp-action="">Back</a>

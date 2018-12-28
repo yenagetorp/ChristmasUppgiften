@@ -15,9 +15,9 @@
                     @person.Name <br />
                 </div>
                 <div class="card-body">
-                    @for (int i = 0; i < person.Rhymes.Count; i++)
+                    @for (int i = 0; i < person.RhymesAndSender.Count; i++)
                     {
-                        <p><strong style="color:chocolate">Present @(i + 1):</strong> @person.Rhymes[i]</p>
+                        <p><strong style="color:chocolate">Present @(i + 1) From @person.RhymesAndSender[i].Item2:</strong> @person.RhymesAndSender[i].Item1</p>
                     }
 
                 </div>

@@ -15,7 +15,11 @@ namespace Christmas.Models.ViewModels
         [Display(Name="First Name")]
         public string Name { get; set; }
 
-        [Display(Name="Rhyme")]
-        public  List<string> Rhymes{ get; set; }
+
+        //[Display(Name = "Sender")]
+        //public string Sender { get; set; }
+
+        [Display(Name="Rhyme and Sender")]
+        public  List<Tuple<string, string>> RhymesAndSender{ get; set; }
     }
 }

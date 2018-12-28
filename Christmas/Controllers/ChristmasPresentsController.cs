@@ -39,7 +39,7 @@ namespace Christmas.Controllers
         }
 
         [HttpGet]
-       // [Route("/ChristmasPresents/CreatePresents")]
+        // [Route("/ChristmasPresents/CreatePresents")]
         public IActionResult CreatePresents()
         {
             var viewModel = new ChristmasPresentsCreateVM();
@@ -49,28 +49,52 @@ namespace Christmas.Controllers
                 //viewModel.Rhyme= db.Present.
                 viewModel.People = db.Person.ToList().Select(p => new SelectListItem
                 {
-                    Value=p.Id.ToString(),
-                    Text=p.Name
+                    Value = p.Id.ToString(),
+                    Text = p.Name
                 }).ToList();
-            }
 
-           // {
+
+                //viewModel.Senders = db.Present.ToList().Select(ps => new SelectListItem
+                //{
+                //    Value = ps.Rhyme,
+                //    Text = ps.Sender
+                //}).ToList();
+
+                viewModel.Senders = new SelectListItem[]
+                {
+                    new SelectListItem{ Value = "1", Text = "Marianna" },
+                    new SelectListItem{ Value = "2", Text = "Samuel" },
+                    new SelectListItem{ Value = "3", Text = "Joel" },
+                    new SelectListItem{ Value = "4", Text = "Mamma" },
+                    new SelectListItem{ Value = "5", Text = "Pappa" },
+                    new SelectListItem{ Value = "6", Text = "Elias" },
+                    new SelectListItem{ Value = "7", Text = "Lineea" },
+                    new SelectListItem{ Value = "8", Text = "Anders" },
+                    new SelectListItem{ Value = "9", Text = "Lilla bro" }
+                };
+
+
+
                 //People = new List<SelectListItem>
                 //{
                 //    new SelectListItem { Value = "1", Text = "Samuel" },
                 //    new SelectListItem { Value = "2", Text = "Elias", Selected = true },
                 //    new SelectListItem { Value = "3", Text = "Lineea" }
-          //  };
+                //  };
 
-            return View(viewModel);
+                return View(viewModel);
+            }
         }
+
 
         [HttpPost]
         public IActionResult CreatePresents(ChristmasPresentsCreateVM present)
         {
+          
             service.CreatePresents(present);
             return RedirectToAction(nameof(Index));
         }
+
 
     }
 }
